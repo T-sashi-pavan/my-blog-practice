@@ -1,20 +1,20 @@
-name: Node.js CI
+name: Node.js CI  # This is just the name of your workflow
 
-on: [push, pull_request]
+on: [push, pull_request]  # This workflow will run on any push or pull request event
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  test:  # Define a job named "test"
+    runs-on: ubuntu-latest  # Use a Linux virtual machine provided by GitHub
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [14.x, 16.x, 18.x]  # Test against 3 Node.js versions
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4  # Step 1: Checkout your code
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4  # Step 2: Setup Node.js
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm test
+          node-version: ${{ matrix.node-version }}  # Use version from matrix
+      - run: npm install  # Step 3: Install dependencies
+      - run: npm test     # Step 4: Run test script from package.json
