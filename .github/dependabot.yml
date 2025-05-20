@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"   # Use "pip" for Python, "maven" for Java, etc.
+    directory: "/"             # Location of your package.json or requirements.txt
+    schedule:
+      interval: "daily"        # "daily", "weekly", or "monthly"
